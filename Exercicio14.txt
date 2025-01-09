@@ -1,0 +1,3 @@
+aluno: Pedro e a nota do aluno: 8.0
+aluno: Maria e a nota do aluno: 10.0
+aluno: Amilton e a nota do aluno: 7.5
