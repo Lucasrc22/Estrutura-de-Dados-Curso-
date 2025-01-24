@@ -1,8 +1,17 @@
+import sys
+import os
+
+# Adiciona o diretório raiz ao caminho de busca
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
+
+from Secao6.Pilhas import Pilha
+
+
 class Vertice:
     def __init__(self, rotulo):
         self.rotulo = rotulo
         self.visitado = False
-        self.adjacentes = []
+        self.adjacentes= []
 
 
     def adiciona_adjacente(self, adjacente):
@@ -10,7 +19,7 @@ class Vertice:
     
     def mostra_adjacente(self):
         for i in self.adjacentes:
-            print(i.vertive.rotulo, i.custo)
+            print(i.vertice.rotulo, i.custo)
 
 class Adjacente:
     def __init__(self, vertice, custo):
@@ -78,3 +87,39 @@ class Grafo:
   bucharest.adiciona_adjacente(Adjacente(fagaras, 211))
   bucharest.adiciona_adjacente(Adjacente(pitesti, 101))
   bucharest.adiciona_adjacente(Adjacente(giurgiu, 90))
+
+
+
+grafo = Grafo()
+grafo.arad.mostra_adjacente()
+print()
+grafo.bucharest.mostra_adjacente()
+print()
+grafo.pitesti.mostra_adjacente()
+
+class BuscaProfundidade:
+    def __init__(self, inicio):
+        self.inicio = inicio
+        self.inicio.visitado = True
+        self.pilha = Pilha(20)
+        self.pilha.empilhar(inicio)
+    
+    def buscar(self):
+        topo = self.pilha.verTopo()
+        print('Topo: {}'.format(topo.rotulo))
+        for adjacente in topo.adjacentes:
+            print(('Topo é {}. {} já foi visitada? {}'.format(topo.rotulo, adjacente.vertice.rotulo, adjacente.vertice.visitado)))
+            if adjacente.vertice.visitado == False:
+                adjacente.vertice.visitado = True
+                self.pilha.empilhar(adjacente.vertice)
+                print('Empilhou {}'.format(adjacente.vertice.rotulo))
+                self.buscar()
+
+        print('Desempilhou: {}'.format(self.pilha.desempilhar().rotulo))
+        print()
+
+
+buscar_profundidade = BuscaProfundidade(grafo.arad)
+
+buscar_profundidade.buscar()
+

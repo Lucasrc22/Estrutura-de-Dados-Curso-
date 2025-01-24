@@ -1,10 +1,12 @@
+
+
 import numpy as np
 
 class Pilha:
     def __init__(self, capacidade):
         self.__capacidade = capacidade
         self.__topo = -1
-        self.__valores = np.empty(self.__capacidade, dtype=int)
+        self.__valores = np.empty(self.__capacidade, dtype=object)  # Permite armazenar objetos genéricos
 
     def __pilhaCheia(self):
         return self.__topo == self.__capacidade - 1
@@ -17,22 +19,25 @@ class Pilha:
             print("A Pilha está cheia")
         else:
             self.__topo += 1
-            self.__valores[self.__topo] = valor
-
+            self.__valores[self.__topo] = valor  # Armazena qualquer objeto
+    
     def desempilhar(self):
         if self.__pilhaVazia():
             print("A Pilha está vazia")
+            return None  # Retorna None se a pilha estiver vazia
         else:
             valor_removido = self.__valores[self.__topo]
+            self.__valores[self.__topo] = None  # Limpa o espaço na pilha
             self.__topo -= 1
-            return valor_removido
-
+            return valor_removido  # Retorna o objeto removido
+    
     def verTopo(self):
-        if self.__topo != -1:
-            return self.__valores[self.__topo]
-        else:
-            print("A Pilha está vazia!")
+        if self.__pilhaVazia():
+            print("A Pilha está vazia")
             return None
+        else:
+            return self.__valores[self.__topo]  # Retorna o objeto no topo da pilha
+
 
 # Execução com exemplo
 
