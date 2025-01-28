@@ -5,14 +5,14 @@ class FilaCircular:
         self.capacidade = capacidade
         self.inicio = 0
         self.final = -1
-        self.numerosElementos = 0
+        self.numero_elementos = 0
         self.valores = np.empty(self.capacidade, dtype=object)
 
     def fila_vazia(self):  # Método público agora
-        return self.numerosElementos == 0
+        return self.numero_elementos == 0
 
     def __fila_cheia(self):
-        return self.numerosElementos == self.capacidade
+        return self.numero_elementos == self.capacidade
 
     def enfileirar(self, valor):
         if self.__fila_cheia():
@@ -22,7 +22,7 @@ class FilaCircular:
         # Incremento circular para o final
         self.final = (self.final + 1) % self.capacidade
         self.valores[self.final] = valor
-        self.numerosElementos += 1
+        self.numero_elementos += 1
 
     def desenfileirar(self):
         if self.fila_vazia():
@@ -33,7 +33,7 @@ class FilaCircular:
         
         # Incremento circular para o início
         self.inicio = (self.inicio + 1) % self.capacidade
-        self.numerosElementos -= 1
+        self.numero_elementos -= 1
         return temp
 
     def primeiro(self):
