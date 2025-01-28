@@ -5,7 +5,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
 
 from Secao6.Pilhas import Pilha
-
+from Secao6.Fila import FilaCircular
 
 class Vertice:
     def __init__(self, rotulo):
@@ -117,9 +117,41 @@ class BuscaProfundidade:
 
         print('Desempilhou: {}'.format(self.pilha.desempilhar().rotulo))
         print()
+class BuscaLargura:
+  def __init__(self, inicio):
+    self.inicio = inicio
+    self.inicio.visitado = True
+    self.fila = FilaCircular(20)
+    self.fila.enfileirar(inicio)
 
+  def buscar(self):
+    primeiro = self.fila.primeiro()
+    print('-------')
+    print('Primeiro da fila: {}'.format(primeiro.rotulo))
+    temp = self.fila.desenfileirar()
+    print('Desenfileirou: {}'.format(temp.rotulo))
+    for adjacente in primeiro.adjacentes:
+      print('Primeiro era {}. {} já foi visitado? {}'.format(temp.rotulo, adjacente.vertice.rotulo, adjacente.vertice.visitado))
+      if adjacente.vertice.visitado == False:
+        adjacente.vertice.visitado = True
+        self.fila.enfileirar(adjacente.vertice)
+        print('Enfileirou: {}'.format(adjacente.vertice.rotulo))
+    if self.fila.numero_elementos > 0:
+      self.buscar()
 
 buscar_profundidade = BuscaProfundidade(grafo.arad)
 
 buscar_profundidade.buscar()
 
+fila = FilaCircular(20)
+
+fila.enfileirar(grafo.arad)
+fila.enfileirar(grafo.bucharest)
+fila.enfileirar(grafo.fagaras)
+fila.primeiro().rotulo
+fila.desenfileirar().rotulo
+fila.primeiro().rotulo
+
+
+busca_largura = BuscaLargura(grafo.arad)
+busca_largura.buscar()

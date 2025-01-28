@@ -1,12 +1,12 @@
 import numpy as np
 
-class Fila:
+class FilaCircular:
     def __init__(self, capacidade):
         self.capacidade = capacidade
         self.inicio = 0
         self.final = -1
         self.numerosElementos = 0
-        self.valores = np.empty(self.capacidade, dtype=int)
+        self.valores = np.empty(self.capacidade, dtype=object)
 
     def fila_vazia(self):  # Método público agora
         return self.numerosElementos == 0
@@ -43,7 +43,7 @@ class Fila:
 
 
 # Exemplo de uso
-fila = Fila(5)
+fila = FilaCircular(5)
 
 # Enfileirar elementos
 fila.enfileirar(10)
