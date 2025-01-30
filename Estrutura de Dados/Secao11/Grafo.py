@@ -8,6 +8,26 @@ from Secao6.Pilhas import Pilha
 from Secao6.Fila import FilaCircular
 from Secao6.VetorOrdenado import VetorOrdenado
 
+
+class Vertice:
+    def __init__(self, rotulo, distancia_objetivo):
+        self.rotulo = rotulo
+        self.visitado = False
+        self.adjacentes= []
+        self.distancia_objetivo = distancia_objetivo
+
+
+    def adiciona_adjacente(self, adjacente):
+        self.adjacentes.append(adjacente)
+    
+    def mostra_adjacente(self):
+        for i in self.adjacentes:
+            print(i.vertice.rotulo, i.custo)
+
+class Adjacente:
+    def __init__(self, vertice, custo):
+        self.vertice = vertice
+        self.custo = custo
 class Gulosa:
   def __init__(self, objetivo):
     self.objetivo = objetivo
@@ -30,41 +50,22 @@ class Gulosa:
 
       if vetor_ordenado.valores[0] != None:
         self.buscar(vetor_ordenado.valores[0])
-class Vertice:
-    def __init__(self, rotulo, distancia_objetivo):
-        self.rotulo = rotulo
-        self.visitado = False
-        self.adjacentes= []
-        self.distancia_objetivo = distancia_objetivo
-
-
-    def adiciona_adjacente(self, adjacente):
-        self.adjacentes.append(adjacente)
-    
-    def mostra_adjacente(self):
-        for i in self.adjacentes:
-            print(i.vertice.rotulo, i.custo)
-
-class Adjacente:
-    def __init__(self, vertice, custo):
-        self.vertice = vertice
-        self.custo = custo
 
 class Grafo:
-  arad = Vertice('Arad')
-  zerind = Vertice('Zerind')
-  oradea = Vertice('Oradea')
-  sibiu = Vertice('Sibiu')
-  timisoara = Vertice('Timisoara')
-  lugoj = Vertice('Lugoj')
-  mehadia = Vertice('Mehadia')
-  dobreta = Vertice('Dobreta')
-  craiova = Vertice('Craiova')
-  rimnicu = Vertice('Rimnicu')
-  fagaras = Vertice('Fagaras')
-  pitesti = Vertice('Pitesti')
-  bucharest = Vertice('Bucharest')
-  giurgiu = Vertice('Giurgiu')
+  arad = Vertice('Arad', 366)
+  zerind = Vertice('Zerind', 374)
+  oradea = Vertice('Oradea', 380)
+  sibiu = Vertice('Sibiu', 253)
+  timisoara = Vertice('Timisoara', 329)
+  lugoj = Vertice('Lugoj', 244)
+  mehadia = Vertice('Mehadia', 241)
+  dobreta = Vertice('Dobreta', 242)
+  craiova = Vertice('Craiova', 160)
+  rimnicu = Vertice('Rimnicu', 193)
+  fagaras = Vertice('Fagaras', 178)
+  pitesti = Vertice('Pitesti', 98)
+  bucharest = Vertice('Bucharest', 0)
+  giurgiu = Vertice('Giurgiu', 77)
 
   arad.adiciona_adjacente(Adjacente(zerind, 75))
   arad.adiciona_adjacente(Adjacente(sibiu, 140))
@@ -182,3 +183,17 @@ busca_largura.buscar()
 
 busca_gulosa = Gulosa(grafo.bucharest)
 busca_gulosa.buscar(grafo.arad)
+
+print()
+print()
+vetor = VetorOrdenado(5)
+vetor.insere(grafo.arad)
+vetor.insere(grafo.craiova)
+vetor.insere(grafo.bucharest)
+vetor.insere(grafo.dobreta)
+vetor.imprime()
+
+vetor.insere(grafo.lugoj)
+vetor.imprime()
+
+vetor.valores[0], vetor.valores[0].rotulo
