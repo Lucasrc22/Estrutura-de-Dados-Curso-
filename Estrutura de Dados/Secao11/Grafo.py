@@ -28,6 +28,7 @@ class Adjacente:
     def __init__(self, vertice, custo):
         self.vertice = vertice
         self.custo = custo
+        self.distancia_aestrela = vertice.distancia_objetivo + self.custo
 class Gulosa:
   def __init__(self, objetivo):
     self.objetivo = objetivo
@@ -164,6 +165,29 @@ class BuscaLargura:
     if self.fila.numero_elementos > 0:
       self.buscar()
 
+class AEstrela:
+  def __init__(self, objetivo):
+    self.objetivo = objetivo
+    self.encontrado = False
+
+  def buscar(self, atual):
+    print('----------')
+    print('Atual: {}'.format(atual.rotulo))
+    atual.visitado = True
+
+    if atual == self.objetivo:
+      self.encontrado = True
+    else:
+      vetor_ordenado = VetorOrdenado(len(atual.adjacentes))
+      for adjacente in atual.adjacentes:
+        if adjacente.vertice.visitado == False:
+          adjacente.vertice.visitado = True
+          vetor_ordenado.insere(adjacente)
+      vetor_ordenado.imprime()
+
+      if vetor_ordenado.valores[0] != None:
+        self.buscar(vetor_ordenado.valores[0].vertice)
+
 buscar_profundidade = BuscaProfundidade(grafo.arad)
 
 buscar_profundidade.buscar()
@@ -197,3 +221,6 @@ vetor.insere(grafo.lugoj)
 vetor.imprime()
 
 vetor.valores[0], vetor.valores[0].rotulo
+
+busca_aestrela = AEstrela(grafo.bucharest)
+busca_aestrela.buscar(grafo.arad)
