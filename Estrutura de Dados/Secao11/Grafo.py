@@ -6,12 +6,36 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
 
 from Secao6.Pilhas import Pilha
 from Secao6.Fila import FilaCircular
+from Secao6.VetorOrdenado import VetorOrdenado
 
+class Gulosa:
+  def __init__(self, objetivo):
+    self.objetivo = objetivo
+    self.encontrado = False
+
+  def buscar(self, atual):
+    print('-------')
+    print('Atual: {}'.format(atual.rotulo))
+    atual.visitado = True
+
+    if atual == self.objetivo:
+      self.encontrado = True
+    else:
+      vetor_ordenado = VetorOrdenado(len(atual.adjacentes))
+      for adjacente in atual.adjacentes:
+        if adjacente.vertice.visitado == False:
+          adjacente.vertice.visitado == True
+          vetor_ordenado.insere(adjacente.vertice)
+      vetor_ordenado.imprime()
+
+      if vetor_ordenado.valores[0] != None:
+        self.buscar(vetor_ordenado.valores[0])
 class Vertice:
-    def __init__(self, rotulo):
+    def __init__(self, rotulo, distancia_objetivo):
         self.rotulo = rotulo
         self.visitado = False
         self.adjacentes= []
+        self.distancia_objetivo = distancia_objetivo
 
 
     def adiciona_adjacente(self, adjacente):
@@ -155,3 +179,6 @@ fila.primeiro().rotulo
 
 busca_largura = BuscaLargura(grafo.arad)
 busca_largura.buscar()
+
+busca_gulosa = Gulosa(grafo.bucharest)
+busca_gulosa.buscar(grafo.arad)
