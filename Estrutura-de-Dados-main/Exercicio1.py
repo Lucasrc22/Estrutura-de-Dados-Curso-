@@ -11,14 +11,14 @@ class ListaEncadeada:
         self.head = None
 
     def insert(self, head):
-        new = Node(head)
-        if self.head is None:
+        new = Node(head) #Cria um novo Nó
+        if self.head is None: # Se a lista estiver vazia, crie o primeiro nó
             self.head = new
         else:
-            current = self.head
-            while current.next is not None:
+            current = self.head #começa pelo primeiro nó
+            while current.next is not None: #percorre até o último nó 
                 current = current.next
-            current.next = new
+            current.next = new #insere o novo nó no final
     
     def showNumber(self):
         current = self.head
@@ -29,14 +29,14 @@ class ListaEncadeada:
     
     def delete_alternate(self):
         if self.head is None:
-            return
+            return #Se a lista estiver vazia, não faz nada
         
-        self.head = self.head.next  
+        self.head = self.head.next #remove o primeiro nó
         
         current = self.head
         while current is not None and current.next is not None:
-            current.next = current.next.next  
-            current = current.next
+            current.next = current.next.next #Remove o próximo do próximo nó 
+            current = current.next #avança para o próximo nó
 
 teste = ListaEncadeada()
 teste.insert(8)
