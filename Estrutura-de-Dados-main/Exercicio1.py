@@ -31,11 +31,11 @@ class ListaEncadeada:
         if self.head is None:
             return
         
-        self.head = self.head.next  # Remove o primeiro elemento
+        self.head = self.head.next  
         
         current = self.head
         while current is not None and current.next is not None:
-            current.next = current.next.next  # Remove o próximo do próximo
+            current.next = current.next.next  
             current = current.next
 
 teste = ListaEncadeada()
