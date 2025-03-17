@@ -53,12 +53,58 @@ class ListaEncadeada:
                     atual.nome, atual.proximo.nome = atual.proximo.nome, atual.nome
                     trocado = True
                 atual = atual.proximo
+    
+    def remover_por_matricula(self, matricula):
+        if self.primeiro is None:
+            print("Lista vazia")
+            return
+        
+        if self.primeiro.matricula == matricula:
+            self.primeiro = self.primeiro.proximo
+            if self.primeiro is None:  
+                self.ultimo = None
+            return
+        
+        atual = self.primeiro
+        while atual.proximo is not None and atual.proximo.matricula != matricula:
+            atual = atual.proximo
+
+        if atual.proximo is None:
+            print("Matrícula não encontrada")
+        else:
+            if atual.proximo == self.ultimo: 
+                self.ultimo = atual
+            atual.proximo = atual.proximo.proximo
+
+    def procurar_nota(self, nota):
+        if self.primeiro is None:
+            print("Lista Vazia")
+            return
+
+        atual = self.primeiro
+        nota_encontrada = False
+
+        while atual is not None:
+            if atual.nota == nota:
+                if atual.nota == 10:
+                    print(f"Parabéns!! Achamos uma nota {nota} de {atual.nome}")
+                elif 7 <= atual.nota < 10:
+                    print(f"Você passou, {atual.nome}!!")
+                nota_encontrada = True
+
+            atual = atual.proximo
+
+        if not nota_encontrada:
+            print(f"Não encontramos nenhum aluno com a nota {nota}")
+
+
+# Teste do código
 
 Aluno = ListaEncadeada()
-Aluno.inserir(1234, 10, "Fulano")
-Aluno.inserir(5678, 8, "Ciclano")
-Aluno.inserir(9876, 7, "Random")
-Aluno.inserir(4321, 9, "Beltrano")
+Aluno.inserir("01417176458", 10, "Lucas")
+Aluno.inserir("02252360445", 9, "Zuila")
+Aluno.inserir("70719240158", 10, "Duda")
+Aluno.inserir("18219427478", 7, "Jose")
 
 print("Lista antes da ordenação:")
 Aluno.printAluno()
@@ -69,5 +115,14 @@ print("\nLista após ordenação por nota:")
 Aluno.printAluno()
 
 Aluno.excluir_inicio()
-print("\nLista com o primeiro aluno da nota 10 excluido\n")
+print("\nLista com o primeiro aluno da nota 10 excluído\n")
 Aluno.printAluno()
+
+Aluno.remover_por_matricula("02252360445")
+
+print("\nLista após remover matrícula 02252360445:\n")
+Aluno.printAluno()
+
+Aluno.procurar_nota(7)
+print()
+Aluno.procurar_nota(10)
