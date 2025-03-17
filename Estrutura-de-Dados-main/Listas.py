@@ -40,12 +40,38 @@ class ListaEncadeada:
         temporario = self.primeiro
         self.primeiro = self.primeiro.proximo
         return temporario
-    
+
+    def ordenar_por_nota(self):
+        if self.primeiro is None or self.primeiro.proximo is None:
+            return
+
+        trocar = True
+
+        while trocar:
+            trocar = False
+            atual = self.primeiro
+            while atual.proximo is not None:
+                atual.matricula, atual.proximo.matricula = atual.proximo.matricula, atual.matricula
+                atual.nota, atual.proximo.nota = atual.proximo.nota, atual.nota
+                
+                atual.nome, atual.proximo.nome = atual.proximo.nome, atual.nome
+                trocar = True
+            atual = atual.proximo
 
 Aluno = ListaEncadeada()
 Aluno.inserir(1234,10, "fulano")
 Aluno.inserir(5678,8, "ciclano")
 Aluno.inserir(9876,7, "random")
+Aluno.inserir(4321, 9, "Beltrano")
+
+print("Lista antes da ordenação:")
+Aluno.printAluno()
+
+Aluno.ordenar_por_nota()
+
+print("\nLista após ordenação por nota:")
+Aluno.printAluno()
+print("\nExcluindo primeiro aluno")
 Aluno.excluir_inicio()
 Aluno.printAluno()
 
