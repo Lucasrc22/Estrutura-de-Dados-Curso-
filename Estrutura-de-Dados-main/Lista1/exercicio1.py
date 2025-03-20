@@ -94,7 +94,7 @@ print("Lista sem a extremidade superior")
 lista.show_list()
 
 lista.exclude_tail()
-print("Lista sem a extremidade superior")
+print("Lista sem a extremidade inferior")
 
 lista.show_list()
 print("Implementando nova head e tail")
