@@ -76,7 +76,7 @@ class Deque:
             return None
         current = self.head
         while current is not None:
-            print(current.value)
+            print(current.value, end= " ")
             current = current.next
         print()
 
