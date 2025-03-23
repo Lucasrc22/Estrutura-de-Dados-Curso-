@@ -61,3 +61,20 @@ lista.remover_duplicatas()
 
 print("Lista após remover duplicatas:")
 lista.print_lista()
+
+"""
+         Remove elementos duplicados mantendo a primeira ocorrência.
+
+        Complexidade de Tempo:
+        - O(N), pois percorremos a lista apenas uma vez e usamos um conjunto (set)
+          para armazenar os valores já vistos, que tem operações O(1) em média.
+
+        Complexidade de Espaço:
+        - O(N), pois utilizamos um conjunto adicional para armazenar os valores únicos.
+
+        Otimizações Possíveis:
+        1. Se a lista estiver ordenada, podemos remover duplicatas sem usar `set`,
+           apenas comparando elementos consecutivos, reduzindo a complexidade espacial para O(1).
+        2. Se não houver restrição de memória, um dicionário (`dict`) pode ser usado
+           para armazenar a frequência dos elementos e permitir estatísticas rápidas.
+        """
