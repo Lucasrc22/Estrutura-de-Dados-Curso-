@@ -96,3 +96,32 @@ def main():
 
 if __name__ == "__main__":
     main()
+"""
+O Papel da Pilha de Chamadas (Call Stack) em Funções Recursivas
+A pilha de chamadas (call stack) é uma estrutura de dados fundamental que armazena informações sobre 
+as funções que estão sendo executadas em um programa, incluindo as variáveis locais e o ponto em que a 
+execução de cada função deve continuar após o retorno. Em funções recursivas, a pilha de chamadas desempenha 
+um papel crucial, pois cada chamada recursiva cria um novo "quadro" (ou "frame") na pilha. 
+Esse quadro contém o estado da função naquele ponto da execução, como parâmetros e variáveis locais.
+
+Como a Pilha de Chamadas Funciona com Recursão
+Quando uma função recursiva é chamada, a pilha de chamadas armazena o
+ estado da execução de cada instância da função. A recursão ocorre quando a 
+ função chama a si mesma com diferentes parâmetros até atingir uma condição base (base case). 
+ Quando a condição base é atingida, as chamadas recursivas começam a ser "desempilhadas", 
+ retornando aos seus estados anteriores, até que a função original seja completamente executada.
+
+
+ 
+ Efeito no Desempenho e Consumo de Memória
+Desempenho:
+O uso de recursão aumenta o número de chamadas de funções e, consequentemente, o número de "quadro de pilha" 
+que precisam ser alocados. Cada quadro contém informações como variáveis locais e o endereço de retorno da função, 
+o que pode consumir recursos computacionais. Assim, a recursão pode tornar um problema mais lento em termos de desempenho 
+em comparação a uma solução iterativa, especialmente quando a profundidade da recursão é grande.
+
+Consumo de Memória:
+A pilha de chamadas cresce à medida que a profundidade da recursão aumenta. Cada novo quadro de pilha ocupa uma quantidade de memória. 
+Quando a recursão se torna muito profunda, o consumo de memória pode levar a um estouro de pilha (stack overflow), 
+que ocorre quando a pilha não tem mais espaço suficiente para armazenar as informações das novas chamadas.
+"""
