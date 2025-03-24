@@ -16,9 +16,6 @@
 # frames de pilha. Assim, a recursão de cauda pode ser mais eficiente, já que não há o risco de estouro de pilha em muitos casos.
 # Porém, o Python não otimiza automaticamente recursão de cauda.
 #
-# **Exemplo de Memoização**:
-# Vamos usar a sequência de **Fibonacci** como exemplo, um caso clássico onde a memoização pode otimizar significativamente uma
-# função recursiva.
 #
 # **Fibonacci sem Memoização (versão ineficiente)**:
 # Uma implementação recursiva simples do cálculo de Fibonacci sem memoização tem um desempenho muito ruim devido à repetição
