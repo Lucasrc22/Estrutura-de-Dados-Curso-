@@ -35,7 +35,7 @@ def merge_sorted_lists(list1, list2):
     if list2.head is None:
         return list1
 
-    # Define a cabeça da lista mesclada
+
     if list1.head.age < list2.head.age:
         merged_head = list1.head
         list1.head = list1.head.next
@@ -45,7 +45,7 @@ def merge_sorted_lists(list1, list2):
 
     merged_current = merged_head
 
-    # Percorre ambas as listas e adiciona os nós na ordem correta
+   
     while list1.head and list2.head:
         if list1.head.age < list2.head.age:
             merged_current.next = list1.head
@@ -55,15 +55,13 @@ def merge_sorted_lists(list1, list2):
             list2.head = list2.head.next
         merged_current = merged_current.next
 
-    # Adiciona os elementos restantes
+
     merged_current.next = list1.head if list1.head else list2.head
 
-    # Retorna a lista mesclada
     merged_list = ListaEncadeada()
     merged_list.head = merged_head
     return merged_list
 
-# Criando duas listas encadeadas ordenadas
 list1 = ListaEncadeada()
 list1.insert_in_order("Lucas", 25)
 list1.insert_in_order("Maria", 21)
@@ -90,24 +88,19 @@ merged_list.show_list()
 print()
 
 """
-# Discussão sobre Eficiência e Otimizações
 
-## Eficiência:
-- O algoritmo percorre cada lista apenas uma vez, realizando comparações e atribuições.
-- Como cada nó é visitado no máximo uma vez, a complexidade do algoritmo é O(n), onde n é o número total de nós nas duas listas.
-- Essa complexidade é ótima para esse tipo de problema, pois não requer passes adicionais.
+Eficiência:
+O algoritmo percorre cada lista apenas uma vez, realizando comparações e atribuições.
+Como cada nó é visitado no máximo uma vez, a complexidade do algoritmo é O(n), onde n é o número total de nós nas duas listas.
+Essa complexidade é ótima para esse tipo de problema, pois não requer passes adicionais.
 
-## Possíveis otimizações:
-1. **Uso de ponteiros em vez de modificar os nós das listas:**
-   - Atualmente, modificamos os ponteiros da lista original, o que pode dificultar a reutilização.
-   - Uma alternativa seria criar uma nova lista e copiar os nós, preservando as listas originais.
+Possíveis otimizações:
+Uso de ponteiros em vez de modificar os nós das listas:
+Atualmente, modificamos os ponteiros da lista original, o que pode dificultar a reutilização.
+Uma alternativa seria criar uma nova lista e copiar os nós, preservando as listas originais.
 
-2. **Evitar verificações desnecessárias:**
-   - No código atual, fazemos verificações extras como `if list1.head is None`, que poderiam ser simplificadas durante a iteração.
-   
-3. **Implementação iterativa mais enxuta:**
-   - Utilizar um nó `dummy` para evitar verificações adicionais ao definir o primeiro nó da lista mesclada.
-   - Isso evitaria a necessidade do bloco de código separado para definir `merged_head`.
+Implementação iterativa mais enxuta:
+Utilizar um nó `dummy` para evitar verificações adicionais ao definir o primeiro nó da lista mesclada.
+Isso evitaria a necessidade do bloco de código separado para definir `merged_head`.
 
-Essa implementação já é eficiente, mas pequenas mudanças podem torná-la ainda mais flexível e reutilizável.
 """
