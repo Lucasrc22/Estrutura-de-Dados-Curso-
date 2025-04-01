@@ -68,6 +68,7 @@ um ponteiro, nextm reduzindo o uso de memória
     Limitações
 
 -Remover do final é ineficiente, pois tem que percorrer a lista inteira
-para encontrar o penultimo nó
+para encontrar o penultimo nó. Ou seja, para funções de fim da fila
+ela não recomendada.
 
 """
