@@ -76,14 +76,3 @@ list1.mesclar_listas_ordenadas(list2)
 
 print("\nLista combinada ordenada:")
 list1.exibir()
-"""
-Análise da Complexidade:
-Complexidade temporal: Como estamos percorrendo as duas listas uma vez, a complexidade é O(n + m), onde n e m são o número de elementos nas duas listas.
-
-Complexidade espacial: A complexidade espacial é O(1) extra, pois estamos apenas alterando os ponteiros existentes e não criando novas estruturas de dados (exceto para o nó "dummy").
-
-Otimizações:
-Evitar cópias desnecessárias: A função já evita criar novas listas, simplesmente ajustando os ponteiros, o que torna o algoritmo muito eficiente em termos de memória.
-Evitar verificações desnecessárias: A função usa o nó "dummy" para evitar verificações no início da lista, o que simplifica o código e pode ter um pequeno ganho
-
-"""
