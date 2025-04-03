@@ -26,7 +26,7 @@ def fibonacci_iterativo(n):
     return a
 
 
-n = 35  # exemplo
+n = 35  
 
 inicio = time.time()
 print(f"Fibonacci Recursivo Simples ({n}):", fibonacci_recursivo(n))
@@ -40,24 +40,3 @@ inicio = time.time()
 print(f"Fibonacci Iterativo ({n}):", fibonacci_iterativo(n))
 print("Tempo:", time.time() - inicio, "segundos")
 
-"""
-Comparação de Eficiência:
-Recursivo Simples:
-Complexidade: O(2^n) muito ineficiente para valores grandes.
-Problema: Muitos cálculos repetidos tornam a execução lenta.
-Exemplo: fibonacci(35) já demora bastante tempo.
-
-Recursivo com Memoização:
-Complexidade: O(n) muito mais eficiente.
-Solução: Armazena valores já calculados para evitar recalcular.
-Resultado: Reduz drasticamente o tempo de execução.
-
-Iterativo:
-Complexidade: O(n), igual ao memoizado.
-Diferença: Usa um loop e ocupa menos memória (não usa pilha de chamadas).
-Melhor escolha para aplicações reais!
-
-Melhoria Proposta:
-Podemos usar Matriz de Transformação para calcular Fibonacci em O(log n), usando exponenciação de matrizes.
-Outra abordagem é Número de Ouro (φ) para obter um valor aproximado de Fibonacci
-"""

@@ -71,36 +71,16 @@ list2 = ListaEncadeada()
 list2.insert_in_order("Zuila", 52)
 list2.insert_in_order("Duda", 24)
 
-# Exibindo as listas antes da mesclagem
 print("Lista 1:")
 list1.show_list()
 print()
 print("Lista 2:")
 list2.show_list()
 
-# Mesclando as listas ordenadas
 merged_list = merge_sorted_lists(list1, list2)
 
-# Exibindo a lista final
 print()
 print("Lista Mesclada:")
 merged_list.show_list()
 print()
 
-"""
-
-Eficiência:
-O algoritmo percorre cada lista apenas uma vez, realizando comparações e atribuições.
-Como cada nó é visitado no máximo uma vez, a complexidade do algoritmo é O(n), onde n é o número total de nós nas duas listas.
-Essa complexidade é ótima para esse tipo de problema, pois não requer passes adicionais.
-
-Possíveis otimizações:
-Uso de ponteiros em vez de modificar os nós das listas:
-Atualmente, modificamos os ponteiros da lista original, o que pode dificultar a reutilização.
-Uma alternativa seria criar uma nova lista e copiar os nós, preservando as listas originais.
-
-Implementação iterativa mais enxuta:
-Utilizar um nó `dummy` para evitar verificações adicionais ao definir o primeiro nó da lista mesclada.
-Isso evitaria a necessidade do bloco de código separado para definir `merged_head`.
-
-"""

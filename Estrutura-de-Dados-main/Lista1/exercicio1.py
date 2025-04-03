@@ -101,19 +101,3 @@ print("Implementando nova head e tail")
 lista.insere_head(9)
 lista.insere_tail(40)
 lista.show_list()
-"""
-
-Permite inserções e remoções eficientes tanto no início quanto no final da fila.  
-Cada nó contém um ponteiro para o próximo elemento,next, e um para o anterior prev, 
-o que facilita operações nos dois extremos sem a necessidade de percorrer toda a estrutura.
-
-Vantagens dessa abordagem:
-Eficiência: Inserções e remoções nos extremos ocorrem em O(1), sem deslocamento de elementos.
-Flexibilidade: Cresce e encolhe dinamicamente sem necessidade de alocação fixa de memória.
-Acesso direto ao último elemento: Diferente da lista simplesmente encadeada, podemos remover 
-o último elemento diretamente sem percorrer toda a lista.
-
-Essa abordagem é ideal para situações onde há a necessidade frequente de adicionar e remover 
-elementos tanto no início quanto no final da fila, como em filas de atendimento e buffers de comunicação.
-
-"""
