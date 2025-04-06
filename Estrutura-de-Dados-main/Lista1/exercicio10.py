@@ -53,17 +53,18 @@ class ListaEncadeada:
 
 
 list1 = ListaEncadeada()
-list1.inserir(1)
-list1.inserir(3)
-list1.inserir(5)
-list1.inserir(7)
 
+list1 = ListaEncadeada()
+list1.inserir(8)
+list1.inserir(7)
+list1.inserir(6)
+list1.inserir(5)
 
 list2 = ListaEncadeada()
-list2.inserir(2)
 list2.inserir(4)
-list2.inserir(6)
-list2.inserir(8)
+list2.inserir(3)
+list2.inserir(2)
+list2.inserir(1)
 
 
 print("Lista 1:")

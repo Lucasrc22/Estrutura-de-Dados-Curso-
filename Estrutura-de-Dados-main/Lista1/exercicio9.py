@@ -47,8 +47,6 @@ class ListaEncadeadaCircular:
             current = current.next
             if current == self.head:
                 break
-        
-    print("It has Returned to the beginning")
 
 lista = ListaEncadeadaCircular()
 lista.insert_in_order("Lucas", 24)

@@ -28,13 +28,13 @@ class ListaEncadeada:
         if not self.head:
             return
         
-        saw_values = set() 
+        saw_values = set()
         current = self.head
         saw_values.add(current.value)
 
         while current.next:
             if current.next.value in saw_values:
-                current.next = current.next.next 
+                current.next = current.next.next
             else:
                 saw_values.add(current.next.value)
                 current = current.next
@@ -51,6 +51,13 @@ lista.inserir(1)
 lista.inserir(4)
 
 lista.inserir(7)
+
+lista.inserir(4)
+
+lista.inserir(10)
+
+lista.inserir(3)
+
 
 
 

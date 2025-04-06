@@ -48,7 +48,6 @@ class ListaEncadeadaCircular:
             if current == self.head:
                 break
         
-        print("Returned to the Beginning")
 
 
 lista = ListaEncadeadaCircular()

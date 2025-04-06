@@ -45,16 +45,7 @@ class Deque:
             self.head = self.head.next
             self.head.prev = None
         return temp.value
-    
-    def insere_tail(self, value):
 
-        newNode = Node(value)
-        if self.empty_list():
-            self.head = self.tail = newNode
-        else:
-            self.tail.next = newNode
-            newNode.prev = self.tail
-            self.tail = newNode
             
     def exclude_tail(self):
         if self.empty_list():
@@ -83,8 +74,8 @@ class Deque:
 lista = Deque()
 lista.insere_head(10)
 lista.insere_tail(20)
-lista.insere_head(5)
-lista.insere_tail(30)
+#lista.insere_head(5)
+#lista.insere_tail(30)
 print("Lista Completa")
 lista.show_list()
 
