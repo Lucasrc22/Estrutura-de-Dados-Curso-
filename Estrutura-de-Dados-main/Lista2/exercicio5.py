@@ -44,7 +44,7 @@ class PilhaEncadeada:
         print(pilha)
 
 
-print("=== Testando Pilha com deque ===")
+print("Testando Pilha com deque")
 p1 = PilhaDeque()
 p1.push(10)
 p1.push(20)
@@ -53,7 +53,7 @@ p1.show()
 p1.pop()
 p1.show()
 
-print("\n=== Testando Pilha com Lista Encadeada ===")
+print("\n Testando Pilha com Lista Encadeada")
 p2 = PilhaEncadeada()
 p2.push(10)
 p2.push(20)
