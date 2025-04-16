@@ -12,10 +12,6 @@ class Pilha:
     def is_empty(self):
         return len(self.items) == 0
 
-    def peek(self):
-        if not self.is_empty():
-            return self.items[-1]
-
     def show(self):
         print(self.items)
 
@@ -24,8 +20,8 @@ def inverter_pilha(pilha):
 
     while not pilha.is_empty():
         pilha_aux.push(pilha.pop())
-
-    return pilha_aux
+    pilha = pilha_aux
+    return pilha
 
 
 p = Pilha()

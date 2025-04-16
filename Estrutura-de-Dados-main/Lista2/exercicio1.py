@@ -28,7 +28,7 @@ class Deque:
         new_node = Node(value)
     
         if self.empty_list():
-            self.head = self.tail = Node()
+            self.head = self.tail = new_node
         
         else:
             self.tail.next = new_node
