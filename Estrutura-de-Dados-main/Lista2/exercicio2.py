@@ -65,7 +65,12 @@ fila.enqueue(60)
 
 print("fila original:")
 fila.mostrar()
+fila.dequeue()
+fila.dequeue()
+fila.dequeue()
 
+print("fila pós dequeue:")
+fila.mostrar()
 remover_duplicatas(fila)
 
 print("fila sem duplicatas:")
