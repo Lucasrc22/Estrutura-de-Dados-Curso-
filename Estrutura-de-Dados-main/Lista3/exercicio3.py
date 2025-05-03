@@ -89,11 +89,11 @@ for size in sizes:
     base_list = random.sample(range(size * 10), size)
     for name, func in algorithms.items():
         if name in ["Bubble Sort", "Selection Sort", "Insertion Sort"] and size > 10000:
-            continue  # Pula algoritmos lentos para listas grandes
+            continue  
         tempo = measure_time(func, base_list)
         data.append({"Algoritmo": name, "Tamanho": size, "Tempo": tempo})
 
-# Lista descendente com 50.000 elementos
+
 desc_list = list(range(50000, 0, -1))
 for name, func in algorithms.items():
     if name in ["Bubble Sort", "Selection Sort", "Insertion Sort"]:
