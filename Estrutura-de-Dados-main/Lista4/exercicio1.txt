@@ -1,0 +1,23 @@
+Durante o contato com estruturas de dados, a Árvore de Huffman logo se destaca por sua simplicidade conceitual e impacto prático. 
+Ela mostra como é possível aplicar lógica e estratégia para resolver problemas reais, como a redução do tamanho de arquivos, 
+sem perder nenhuma informação.
+
+A ideia central é clara: quanto mais um símbolo aparece, menos espaço ele deve ocupar. 
+Isso leva à construção de uma árvore binária em que os símbolos mais frequentes ficam mais próximos da raiz e, por consequência, 
+recebem códigos binários mais curtos. O resultado é uma codificação otimizada, capaz de reduzir significativamente o tamanho de mensagens 
+— o que é essencial em sistemas de compressão, como ZIP, JPEG, ou até mesmo em protocolos de transmissão de dados.
+
+O processo de construção da árvore é baseado em um algoritmo guloso. Primeiro, são reunidos todos os símbolos com suas frequências. 
+Em seguida, os dois de menor frequência são combinados em um novo nó, que representa a soma dos dois. 
+Esse processo se repete até restar apenas um nó, que se torna a raiz da árvore. 
+Cada caminho da raiz até uma folha representa o código binário de um símbolo, 
+sempre mantendo a propriedade de prefixo livre — ou seja, nenhum código pode ser confundido com o início de outro.
+
+Comparando com árvores binárias mais comuns, a de Huffman se diferencia em vários aspectos. 
+Não há preocupação com balanceamento ou ordenação de chaves. A construção da árvore depende apenas das frequências, 
+e os nós internos não armazenam dados diretos, apenas acumulam pesos. Além disso, o foco aqui não é a busca rápida, 
+mas a compressão máxima possível com o menor custo computacional.
+
+Mesmo sem ser uma estrutura tão complexa quanto uma árvore rubro-negra ou uma árvore B, 
+a de Huffman prova que uma ideia bem aplicada pode gerar resultados extraordinários. 
+É um exemplo de como a inteligência algorítmica pode gerar soluções eficientes, simples e aplicáveis em larga escala.
